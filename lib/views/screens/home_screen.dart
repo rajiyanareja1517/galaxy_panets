@@ -77,6 +77,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     animationController.repeat();
 
     return Scaffold(
+      appBar:AppBar(
+        backgroundColor: rBGColor,
+        actions: [
+          IconButton(onPressed: () {
+            setState(() {
+
+            Get.changeTheme( Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+            });
+          }, icon: Get.isDarkMode?Icon(Icons.light_mode):Icon(Icons.dark_mode),color: rWhiteColor,)
+        ],
+      ) ,
       body: Container(
         child: PageView.builder(
           itemCount: Data.planetsList.length,
